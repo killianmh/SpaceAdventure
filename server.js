@@ -1,8 +1,10 @@
+var db = require("./models");
+
 var express = require('express');
 var bodyParser = require('body-parser');
 
 var app = express();
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -17,7 +19,8 @@ var routes = require("./controllers/game_controller.js");
 
 app.use(routes);
 
-app.listen(process.env.PORT || PORT, function(){
-    console.log("Server listening on: http://localhost:"+ PORT);
-});
-
+db.sequelize.sync({force: true}).then(function() {
+    app.listen(PORT, function() {
+      console.log("App listening on http://localhost: " + PORT);
+    });
+  });
