@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS `game`;
 CREATE DATABASE `game`;
 
-USE sgame;
+USE game;
 
 CREATE TABLE characters
 (
