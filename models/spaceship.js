@@ -10,5 +10,14 @@ module.exports = function(sequelize, DataTypes){
             defaultValue: 100
         }
     });
+
+    spaceship.associate = function(models){
+        spaceship.belongsTo(models.character, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+    
     return spaceship;
 };
