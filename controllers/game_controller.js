@@ -1,14 +1,8 @@
 var express = require("express");
 
-// var character = require("../models/characters.js");
-
-// var spaceship = require("../models/spaceships.js");
-
 var db = require("../models");
 
-
 var router = express.Router();
-
 
 //post route uses the character model to create our character with the users choice of name
 router.post("/api/character", function (req, res) {
@@ -40,6 +34,20 @@ router.put("/api/spaceship/:id", function (req, res) {
 	var condition = "id = " + req.params.id;
 
 });
+
+//passport
+router.get("/signup", function (req, res) {
+	res.render("signup");
+});
+
+router.get("/signin", function (req, res) {
+	res.render("signin");
+});
+
+// router.post("/signup", passport.authenticate('local-signup', {
+// 	successRedirect: '/index',
+// 	failureRedirect: '/signup'
+// }));
 
 // Export routes for server.js to use.
 module.exports = router;

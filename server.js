@@ -14,15 +14,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // For Passport 
-app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })); // session secret
-
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
-
-app.use(passport.session()); // persistent login sessions
+// persistent login sessions
+app.use(passport.session());
 
 var exphbs = require('express-handlebars');
 
-app.engine('handlbars', exphbs({ defaultLayout: "main" }));
+app.engine('handlebars', exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 var routes = require("./controllers/game_controller.js");
