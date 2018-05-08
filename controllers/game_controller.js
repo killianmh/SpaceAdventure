@@ -2,6 +2,8 @@ var express = require("express");
 
 var db = require("../models");
 
+var passport = require('passport');
+
 var router = express.Router();
 
 //post route uses the character model to create our character with the users choice of name
@@ -44,10 +46,11 @@ router.get("/signin", function (req, res) {
 	res.render("signin");
 });
 
-// router.post("/signup", passport.authenticate('local-signup', {
-// 	successRedirect: '/index',
-// 	failureRedirect: '/signup'
-// }));
+
+router.post("/signup", passport.authenticate('local-signup', {
+	successRedirect: '/index',
+	failureRedirect: '/signup'
+}));
 
 // Export routes for server.js to use.
 module.exports = router;
