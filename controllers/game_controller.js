@@ -6,6 +6,12 @@ var passport = require('passport');
 
 var router = express.Router();
 
+function isLoggedIn(req, res, next){
+	if(req.isAuthenticated())
+	return next();
+	res.redirect('/signin');
+}
+
 //post route uses the character model to create our character with the users choice of name
 router.post("/api/character", function (req, res) {
 	db.character.create({
@@ -46,9 +52,19 @@ router.get("/signin", function (req, res) {
 	res.render("signin");
 });
 
+router.get("/dashboard",isLoggedIn, function(req, res){
+	res.render('dashboard');
+})
+
+router.get("/logout", function(req,res){
+	req.session.destroy(function(err){
+		res.redirect("/signin");
+	})
+})
+
 
 router.post("/signup", passport.authenticate('local-signup', {
-	successRedirect: '/index',
+	successRedirect: '/dashboard',
 	failureRedirect: '/signup'
 }));
 
