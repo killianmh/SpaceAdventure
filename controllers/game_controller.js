@@ -68,5 +68,10 @@ router.post("/signup", passport.authenticate('local-signup', {
 	failureRedirect: '/signup'
 }));
 
+router.post("/signin", passport.authenticate('local-signin', {
+	successRedirect: '/dashboard',
+	failureRedirect: '/signin'
+}))
+
 // Export routes for server.js to use.
 module.exports = router;
