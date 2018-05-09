@@ -43,6 +43,17 @@ router.put("/api/spaceship/:id", function (req, res) {
 
 });
 
+router.get("/game", function (req, res) {
+	db.character.findOne({
+		where: {
+			userId: req.user.id
+
+		}
+	}).then(function(data){
+		res.render('game', {character: data.name});
+	})
+});
+
 //passport
 router.get("/signup", function (req, res) {
 	res.render("signup");
