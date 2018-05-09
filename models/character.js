@@ -20,7 +20,15 @@ module.exports = function (sequelize, DataTypes) {
         },
     });
 
-    character.associate = function(models){
+    character.associate = function (models) {
+        character.belongsTo(models.user, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+
+    character.associate = function (models) {
         character.hasOne(models.spaceship, {
             onDelete: "cascade"
         });
