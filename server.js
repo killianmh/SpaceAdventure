@@ -25,7 +25,7 @@ app.set("view engine", "handlebars");
 
 var routes = require("./controllers/game_controller.js");
 
-app.use(routes);
+app.use(routes(passport));
 
 require('./config/passport/passport.js')(passport, db.user);
 

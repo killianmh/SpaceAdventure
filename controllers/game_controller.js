@@ -2,7 +2,7 @@ var express = require("express");
 
 var db = require("../models");
 
-var passport = require('passport');
+// var passport = require('passport');
 
 var router = express.Router();
 
@@ -62,16 +62,18 @@ router.get("/logout", function(req,res){
 	})
 })
 
-
-router.post("/signup", passport.authenticate('local-signup', {
-	successRedirect: '/dashboard',
-	failureRedirect: '/signup'
-}));
-
-router.post("/signin", passport.authenticate('local-signin', {
-	successRedirect: '/dashboard',
-	failureRedirect: '/signin'
-}))
-
 // Export routes for server.js to use.
-module.exports = router;
+// module.exports = router;
+
+module.exports = function(passport){
+	router.post("/signup", passport.authenticate('local-signup', {
+		successRedirect: '/dashboard',
+		failureRedirect: '/signup'
+	}));
+	
+	router.post("/signin", passport.authenticate('local-signin', {
+		successRedirect: '/dashboard',
+		failureRedirect: '/signin'
+	}))
+	return router
+}
