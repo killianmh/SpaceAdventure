@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	 crossorigin="anonymous">
+	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<title>Rats in SPAAAAAAAACE!!!</title>
+
+
+
+
+	<style>
+		body {
+			background-color: black;
+
+
+		}
+
+		h1 {
+			/* margin: 0 auto; */
+			color: white;
+			text-align: center;
+		}
+
+
+
+		#card1 {
+
+			margin: 0 auto;
+			/* Added */
+			float: none;
+			/* Added */
+			margin-top: 10px;
+			margin-bottom: 10px;
+			/* align-content: center; */
+		}
+
+		#bsolid {
+			margin-top: 20px;
+			border-right: 5rem;
+			border-style: solid;
+			border-color: white;
+			border: 30px;
+		}
+
+		.span12 {
+			background-color: white;
+		}
+
+
+		.col-sm-10 {
+			/* border-left: 2px solid rgb(128, 128, 128); */
+		}
+
+		#playercard {
+			/* padding: 20px; */
+			margin: 0 auto;
+			/* Added */
+			float: none;
+			/* Added */
+			margin-bottom: 10px;
+			margin-top: 2rem
+			/* align-content: center; */
+		}
+
+		#centered {
+			margin: auto;
+			width: 60%;
+		}
+
+		#btnrow {
+			width: 100%;
+		}
+
+		#buttonoffset {
+			margin-left: 45%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-2" id="bsolid">
+				<div class="card border-dark mb-3" style="width: 5rem;" id="playercard">
+					<img class="card-img-top" src="./images/hermes.png" alt="Card image cap">
+					<!-- <div class="card-body">
+						<p class="card-text">Player 1</p>
+					</div> -->
+
+				</div>
+
+				<h1>Hermes</h1>
+
+				<button type="button" class="btn btn-primary" id="health">
+					Health
+					<span class="badge badge-light">9</span>
+					<!-- <span class="sr-only">unread messages</span> -->
+				</button>
+
+				<button type="button" class="btn btn-danger" id="sanity">
+					Sanity
+					<span class="badge badge-light">10</span>
+					<!-- <span class="sr-only">unread messages</span> -->
+				</button>
+			</div>
+			<div>
+
+
+				<div class="container">
+					<div class="row">
+						<div class="span12">
+							<form class="form-horizontal span6">
+								<fieldset>
+									<legend>Payment</legend>
+
+									<div class="control-group">
+										<label class="control-label">Card Holder's Name</label>
+										<div class="controls">
+											<input type="text" class="input-block-level" pattern="\w+ \w+.*" title="Fill your first and last name" required>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label">Card Number</label>
+										<div class="controls">
+											<div class="row-fluid">
+												<div class="span3">
+													<input type="text" class="input-block-level" autocomplete="off" maxlength="4" pattern="\d{4}" title="First four digits" required>
+												</div>
+												<div class="span3">
+													<input type="text" class="input-block-level" autocomplete="off" maxlength="4" pattern="\d{4}" title="Second four digits" required>
+												</div>
+												<div class="span3">
+													<input type="text" class="input-block-level" autocomplete="off" maxlength="4" pattern="\d{4}" title="Third four digits" required>
+												</div>
+												<div class="span3">
+													<input type="text" class="input-block-level" autocomplete="off" maxlength="4" pattern="\d{4}" title="Fourth four digits" required>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label">Card Expiry Date</label>
+										<div class="controls">
+											<div class="row-fluid">
+												<div class="span9">
+													<select class="input-block-level">
+														<option>January</option>
+														<option>...</option>
+														<option>December</option>
+													</select>
+												</div>
+												<div class="span3">
+													<select class="input-block-level">
+														<option>2018</option>
+														<option>2019</option>
+														<option>2020</option>
+														<option>2021</option>
+
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label">Card CVV</label>
+										<div class="controls">
+											<div class="row-fluid">
+												<div class="span3">
+													<input type="text" class="input-block-level" autocomplete="off" maxlength="3" pattern="\d{3}" title="Three digits at back of your card" required>
+												</div>
+												<div class="span8">
+													<!-- screenshot may be here -->
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-actions">
+										<button type="submit" class="btn btn-primary">Submit</button>
+										<button type="button" class="btn">Cancel</button>
+									</div>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		 crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		 crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		 crossorigin="anonymous"></script>
+
+	</div>
+
+</body>
+
+</html>
