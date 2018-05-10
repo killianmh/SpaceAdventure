@@ -13,6 +13,7 @@ function isLoggedIn(req, res, next) {
 }
 
 //post route uses the character model to create our character with the users choice of name
+//DO WE NEED TO SAVE AVATARRRRRRRR
 router.post("/api/character", function (req, res) {
 	db.character.create({
 		name: req.body.name
@@ -65,11 +66,6 @@ router.get("/game", function (req, res) {
 //for loading character select screen
 router.get("/characterselect", function (req, res) {
 	res.render("char-select");
-});
-
-//for creating a new character
-router.post("/api/newcharacter", function (req, res) {
-
 });
 
 //passport
