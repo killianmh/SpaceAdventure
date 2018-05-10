@@ -12,6 +12,8 @@ function isLoggedIn(req, res, next){
 	res.redirect('/signin');
 }
 
+//post 
+
 //post route uses the character model to create our character with the users choice of name
 router.post("/api/character", function (req, res) {
 	db.character.create({
@@ -42,6 +44,10 @@ router.put("/api/spaceship/:id", function (req, res) {
 	var condition = "id = " + req.params.id;
 
 });
+
+router.get("/", function(req,res){
+	res.render("index");
+})
 
 router.get("/game", function (req, res) {
 	db.character.findOne({
