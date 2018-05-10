@@ -132,7 +132,7 @@ h1 {
 
 .split.left {
     left: 0;
-    background: url('image/flight_space.jpg') center center no-repeat;
+    background: url('/image/flight_space.jpg') center center no-repeat;
     background-size: cover;
 }
 
@@ -146,7 +146,7 @@ h1 {
 
 .split.right {
     right: 0;
-    background: url('image/ship.jpg') center center no-repeat;
+    background: url('/image/ship.jpg') center center no-repeat;
     background-size: cover;
 }
 
