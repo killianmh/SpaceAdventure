@@ -2,7 +2,7 @@ $(function () {
 
 
     $("#charId").on("click", function(event){
-        $(this).addClass(chosenChar)
+        $(this).addClass("chosenChar")
     })
 
     //onclick event for char-select.handlebars, avatar is going to be an ID that relates to an Avatar table maybe?
