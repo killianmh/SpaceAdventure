@@ -2,6 +2,7 @@ $(function () {
 
 
     $("#charId").on("click", function(event){
+        alert("clicked!")
         $(this).addClass("chosenChar")
     })
 
