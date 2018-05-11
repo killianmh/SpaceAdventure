@@ -3,7 +3,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{{!-- <head>
+{{!--
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -17,19 +19,28 @@
 <body>
     <div class="container">
         <div class="split left">
-            <h1>Space Rats</h1>
-            <a href="#" class="button">Learn More!</a>
+            <h1>space rats</h1>
+            <button type="button" class="btn" style="background-color:transparent" data-toggle="modal" data-target="#exampleModalCenter">
+                Learn More!
+            </button>
         </div>
         <div class="split right">
-            <h1>Adventure Begins Now!</h1>
-            <a href="#" class="button">Continue to Game...</a>
+            <h1>your adventure begins...</h1>
+            <button type="button" class="btn" style="background-color:transparent" data-toggle="modal" data-target="#exampleModalCenter">
+                Continue to start game...
+            </button>
         </div>
     </div>
-    {{!-- <script src="/public/js/game.js"></script> --}}
+    {{!--
+    <script src="/public/js/game.js"></script> --}}
+
+    <div class="alert" role="alert">
+        This is an alert!
+    </div>
 
     <footer>
-        <div class="container col-md-10 content-center">
-            <div class="row">
+        <div class="container col-sm-10 content-center">
+            <div class="col-md-row">
                 <p>Developed by Matt Killian Ryan Krug RJ Vasquez &copy; Copyright</p>
             </div>
         </div>
