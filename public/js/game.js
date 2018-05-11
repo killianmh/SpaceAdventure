@@ -9,7 +9,7 @@ $(function () {
     $('#char-create').on('click', function (event) {
         var custInfo = {
             name: $('#char-name').val().trim(),
-            charImg: $(".chosenChar").attr("data-href")
+            charImg: $(".chosenChar").attr("src")
         }
 
         $.ajax('/api/character', {
