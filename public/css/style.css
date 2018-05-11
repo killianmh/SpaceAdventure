@@ -66,7 +66,7 @@ h1 {
     --container-bg-color: #333;
     --left-bg-color:  rgba(56, 56, 56, 0.7);
     --left-button-hover-color: rgba(172, 172, 172, 0.3);
-    --right-bg-color:  rgba(100, 100, 100, 0.562);
+    --right-bg-color:  rgba(56, 56, 56, 0.7);
     --right-button-hover-color: rgba(172, 172, 172, 0.3);
     --hover-width: 75%;
     --other-width: 25%;
@@ -83,23 +83,37 @@ html, body {
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 3rem;
+    font-weight: bold;
     color: white;
     position: absolute;
     left: 50%;
     top: 20%;
-    /* alows button to move with page */
+    text-transform: uppercase;
     transform: translateX(-50%);
     white-space: nowrap;
 }
 
-.button {
+h4 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    text-transform: uppercase;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.btn {
     display: block;
     position: absolute;
     left: 50%;
     top: 40%;
-    height: 2.5rem;
-    padding-top: 1.3rem;
+    height: 1.5rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
     width: 15rem;
     text-align: center;
     color: white;
@@ -108,6 +122,8 @@ h1 {
     font-weight: bold;
     text-transform: uppercase;
     text-decoration: none;
+    /* centers content as box attributes */
+    box-sizing: content-box;
     transform: translateX(-50%);
 
 }
@@ -152,7 +168,11 @@ h1 {
 
 .split.right {
     right: 0;
+<<<<<<< HEAD
+    background: url('/image/red_planet.jpg') center center no-repeat;
+=======
     background: url('/images/ship.jpg') center center no-repeat;
+>>>>>>> a61d688854ed0ce0c8a90575053773a2cca87ae8
     background-size: cover;
 }
 
@@ -202,7 +222,10 @@ footer{
     text-align: center;
     display: inline-block;
     align-items: center; 
-    padding: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color:white;
+    text-transform: uppercase;
 }
 
 @media (max-width: 800px) {

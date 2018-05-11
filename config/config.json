@@ -1,23 +1,23 @@
 {
-        "development": {
-          "username": "root",
-          "password": "root",
-          "database": "game",
-          "host": "localhost",
-          "dialect": "mysql"
-        },
-        "test": {
-          "username": "root",
-          "password": "",
-          "database": "",
-          "host": "",
-          "dialect": "mysql"
-        },
-        "production": {
-          "username": "root",
-          "password": "",
-          "database": "",
-          "host": "",
-          "dialect": "mysql"
-        }
-     } 
+  "development": {
+    "username": "root",
+    "password": "root",
+    "database": "game",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "",
+    "database": "",
+    "host": "",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "",
+    "database": "",
+    "host": "",
+    "dialect": "mysql"
+  }
+}
