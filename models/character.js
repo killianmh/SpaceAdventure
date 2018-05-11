@@ -18,6 +18,10 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             defaultValue: 25
         },
+        charImg: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
     });
 
     character.associate = function (models) {

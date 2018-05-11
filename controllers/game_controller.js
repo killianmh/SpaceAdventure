@@ -16,7 +16,8 @@ function isLoggedIn(req, res, next) {
 //DO WE NEED TO SAVE AVATARRRRRRRR
 router.post("/api/character", function (req, res) {
 	db.character.create({
-		name: req.body.name
+		name: req.body.name,
+		charImg: req.body.charImg
 	})
 		.then(function (result) {
 			res.json({ id: result.insertId })
