@@ -1,17 +1,10 @@
 $(function () {
 
-<<<<<<< HEAD
-
-    $("#charId").on("click", function (event) {
-        alert("clicked!")
-        $(this).addClass("chosenChar")
-=======
     //handles selection of character avatar
     $(".charId").on("click", function (event) {
         // alert("clicked!");
         $(this).children('img').addClass('chosenChar');
         // $(this).addClass("chosenChar")
->>>>>>> 4ed656e0eb52356654979cae511259062074c292
     })
 
     //onclick event for char-select.handlebars
