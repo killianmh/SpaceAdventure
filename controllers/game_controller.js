@@ -28,7 +28,7 @@ router.post("/api/character", function (req, res) {
 router.post("/api/spaceship", function (req, res) {
 	console.log(req.body);
 	db.spaceship.create({
-		name: req.body.name
+		shipImg: req.body.shipImg
 	})
 		.then(function (result) {
 			res.json({ id: result.insertId });

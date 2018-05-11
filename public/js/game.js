@@ -1,13 +1,13 @@
 $(function () {
 
-
+    //handles selection of character avatar
     $(".charId").on("click", function (event) {
         // alert("clicked!");
         $(this).children('img').addClass('chosenChar');
         // $(this).addClass("chosenChar")
     })
 
-    //onclick event for char-select.handlebars, avatar is going to be an ID that relates to an Avatar table maybe?
+    //onclick event for char-select.handlebars
     $('#char-create').on('click', function (event) {
 
         event.preventDefault();
@@ -22,9 +22,33 @@ $(function () {
             data: custInfo
         }).then(
             function () {
-                console.log('Created a new character')
+                console.log('Created a new character');
                 //take us to the ship selection screen
                 location.assign('/shipselect');
+            }
+        )
+    });
+
+    //handles selection of ship image
+    $(".shipId").on("click", function (even) {
+        $(this).children('img').addClass('chosenShip');
+    });
+
+    //event for ship-selection
+    $('#ship-create').on('click', function (event) {
+        event.preventDefault();
+
+        var shipInfo = {
+            shipImg: $(".chosenShip").attr("src")
+        }
+
+        $.ajax('/api/spaceship', {
+            type: 'POST',
+            data: shipInfo
+        }).then(
+            function () {
+                console.log('Created a new Ship!');
+                location.assign('/game');
             }
         )
     });
