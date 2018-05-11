@@ -1,7 +1,7 @@
 $(function () {
 
 
-    $("#charId").on("click", function(event){
+    $(".charId").on("click", function (event) {
         // alert("clicked!");
         $(this).children('img').addClass('chosenChar');
         // $(this).addClass("chosenChar")
@@ -9,6 +9,9 @@ $(function () {
 
     //onclick event for char-select.handlebars, avatar is going to be an ID that relates to an Avatar table maybe?
     $('#char-create').on('click', function (event) {
+
+        event.preventDefault();
+
         var custInfo = {
             name: $('#char-name').val().trim(),
             charImg: $(".chosenChar").attr("src")
