@@ -96,12 +96,12 @@ router.get("/logout", function (req, res) {
 
 module.exports = function (passport) {
 	router.post("/signup", passport.authenticate('local-signup', {
-		successRedirect: '/dashboard',
+		successRedirect: '/characterselect',
 		failureRedirect: '/signup'
 	}));
 
 	router.post("/signin", passport.authenticate('local-signin', {
-		successRedirect: '/dashboard',
+		successRedirect: '/characterselect',
 		failureRedirect: '/signin'
 	}))
 	return router
