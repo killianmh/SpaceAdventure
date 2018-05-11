@@ -6,15 +6,14 @@ var db = require("../models");
 
 var router = express.Router();
 
-function isLoggedIn(req, res, next){
-	if(req.isAuthenticated())
-	return next();
+function isLoggedIn(req, res, next) {
+	if (req.isAuthenticated())
+		return next();
 	res.redirect('/signin');
 }
 
-//post 
-
 //post route uses the character model to create our character with the users choice of name
+//DO WE NEED TO SAVE AVATARRRRRRRR
 router.post("/api/character", function (req, res) {
 	db.character.create({
 		name: req.body.name
@@ -45,20 +44,32 @@ router.put("/api/spaceship/:id", function (req, res) {
 
 });
 
-router.get("/", function(req,res){
+router.get("/", function (req, res) {
 	res.render("index");
 })
 
+//this route is used to keep the character specific information update on game tile 
 router.get("/game", function (req, res) {
 	db.character.findOne({
 		where: {
 			userId: req.user.id
 
 		}
-	}).then(function(data){
-		res.render('game', {character: data.name,
-							health: data.health});
+	}).then(function (data) {
+		res.render('game', {
+			character: data.name,
+			health: data.health
+		});
 	})
+});
+
+//for loading character select screen
+router.get("/characterselect", function (req, res) {
+	res.render("char-select");
+});
+
+router.get('/shipselect', function (req, res) {
+	res.render("ship-select");
 });
 
 //passport
@@ -70,12 +81,12 @@ router.get("/signin", function (req, res) {
 	res.render("signin");
 });
 
-router.get("/dashboard",isLoggedIn, function(req, res){
+router.get("/dashboard", isLoggedIn, function (req, res) {
 	res.render('dashboard');
 })
 
-router.get("/logout", function(req,res){
-	req.session.destroy(function(err){
+router.get("/logout", function (req, res) {
+	req.session.destroy(function (err) {
 		res.redirect("/signin");
 	})
 })
@@ -83,14 +94,14 @@ router.get("/logout", function(req,res){
 // Export routes for server.js to use.
 // module.exports = router;
 
-module.exports = function(passport){
+module.exports = function (passport) {
 	router.post("/signup", passport.authenticate('local-signup', {
-		successRedirect: '/dashboard',
+		successRedirect: '/characterselect',
 		failureRedirect: '/signup'
 	}));
-	
+
 	router.post("/signin", passport.authenticate('local-signin', {
-		successRedirect: '/dashboard',
+		successRedirect: '/characterselect',
 		failureRedirect: '/signin'
 	}))
 	return router
