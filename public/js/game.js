@@ -1,10 +1,16 @@
 $(function () {
 
+    var characterChoice;
+
+    $("#charId").on("click", function(event){
+        characterChoice = this.data-href;
+    })
+
     //onclick event for char-select.handlebars, avatar is going to be an ID that relates to an Avatar table maybe?
     $('#char-create').on('click', function (event) {
         var custInfo = {
-            name: $('#char-name').val().trim()
-            // avatar: 'xxxx'
+            name: $('#char-name').val().trim(),
+            charImg: characterChoice
         }
 
         $.ajax('/api/character', {
