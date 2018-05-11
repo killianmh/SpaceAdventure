@@ -1,7 +1,7 @@
 $(function () {
 
 
-    $("#charId").on("click", function(event){
+    $("#charId").on("click", function (event) {
         alert("clicked!")
         $(this).addClass("chosenChar")
     })
@@ -22,7 +22,7 @@ $(function () {
                 //take us to the ship selection screen
                 location.assign('/shipselect');
             }
-        )
+            )
     });
 
     //This is RJ's javascript that handles our beautiful landing page
@@ -47,4 +47,5 @@ $(function () {
     });
 
 })
+
 
