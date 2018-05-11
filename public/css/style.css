@@ -168,11 +168,7 @@ h4 {
 
 .split.right {
     right: 0;
-<<<<<<< HEAD
-    background: url('/image/red_planet.jpg') center center no-repeat;
-=======
-    background: url('/images/ship.jpg') center center no-repeat;
->>>>>>> a61d688854ed0ce0c8a90575053773a2cca87ae8
+    background: url('/images/red_planet.jpg') center center no-repeat;
     background-size: cover;
 }
 
