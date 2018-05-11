@@ -68,6 +68,10 @@ router.get("/characterselect", function (req, res) {
 	res.render("char-select");
 });
 
+router.get('/shipselect', function (req, res) {
+	res.render("ship-select");
+});
+
 //passport
 router.get("/signup", function (req, res) {
 	res.render("signup");
