@@ -17,7 +17,8 @@ function isLoggedIn(req, res, next) {
 router.post("/api/character", function (req, res) {
 	db.character.create({
 		name: req.body.name,
-		charImg: req.body.charImg
+		charImg: req.body.charImg,
+		userId: req.user.id
 	})
 		.then(function (result) {
 			res.json({ id: result.insertId })
@@ -28,7 +29,7 @@ router.post("/api/character", function (req, res) {
 router.post("/api/spaceship", function (req, res) {
 	console.log(req.body);
 	db.spaceship.create({
-		name: req.body.name
+		shipImg: req.body.shipImg
 	})
 		.then(function (result) {
 			res.json({ id: result.insertId });
