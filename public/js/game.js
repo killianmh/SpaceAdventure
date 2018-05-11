@@ -5,7 +5,7 @@ $(function () {
         // alert("clicked!");
         $(this).children('img').addClass('chosenChar');
         // $(this).addClass("chosenChar")
-    })
+    });
 
     //onclick event for char-select.handlebars
     $('#char-create').on('click', function (event) {
@@ -26,7 +26,7 @@ $(function () {
                 //take us to the ship selection screen
                 location.assign('/shipselect');
             }
-            )
+        );
     });
 
     //handles selection of ship image
@@ -50,7 +50,7 @@ $(function () {
                 console.log('Created a new Ship!');
                 location.assign('/game');
             }
-        )
+        );
     });
 
     //This is RJ's javascript that handles our beautiful landing page
@@ -74,6 +74,6 @@ $(function () {
         container.classList.remove('hover-right');
     });
 
-})
+});
 
 

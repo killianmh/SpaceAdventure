@@ -105,6 +105,7 @@ module.exports = function (passport) {
 	router.post("/signin", passport.authenticate('local-signin', {
 		successRedirect: '/characterselect',
 		failureRedirect: '/signin'
-	}))
-	return router
+	}));
+
+	return router;
 }
