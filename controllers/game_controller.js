@@ -17,7 +17,8 @@ function isLoggedIn(req, res, next) {
 router.post("/api/character", function (req, res) {
 	db.character.create({
 		name: req.body.name,
-		charImg: req.body.charImg
+		charImg: req.body.charImg,
+		userId: req.user.id
 	})
 		.then(function (result) {
 			res.json({ id: result.insertId })
