@@ -60,7 +60,9 @@ router.get("/game", function (req, res) {
 	}).then(function (data) {
 		res.render('game', {
 			character: data.name,
-			health: data.health
+			health: data.health,
+			avatar: data.charImg,
+			money: data.money
 		});
 	})
 });
