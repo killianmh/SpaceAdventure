@@ -104,6 +104,69 @@ router.get("/stage2", function (req, res) {
 	})
 });
 
+router.get("/stage3", function (req, res) {
+	db.user.findOne({
+		where: {
+			id: req.user.id
+
+		},
+		include: [db.character, db.spaceship]
+	}).then(function (data) {
+		var renderInfo = data.dataValues;
+
+		res.render('stage3', {
+			character: renderInfo.character.name,
+			health: renderInfo.character.health,
+			avatar: renderInfo.character.charImg,
+			money: renderInfo.character.money,
+			ship: renderInfo.spaceship.shipImg,
+			fuel: renderInfo.spaceship.fuel
+		});
+	})
+});
+
+router.get("/stage4", function (req, res) {
+	db.user.findOne({
+		where: {
+			id: req.user.id
+
+		},
+		include: [db.character, db.spaceship]
+	}).then(function (data) {
+		var renderInfo = data.dataValues;
+
+		res.render('stage4', {
+			character: renderInfo.character.name,
+			health: renderInfo.character.health,
+			avatar: renderInfo.character.charImg,
+			money: renderInfo.character.money,
+			ship: renderInfo.spaceship.shipImg,
+			fuel: renderInfo.spaceship.fuel
+		});
+	})
+});
+
+router.get("/stage5", function (req, res) {
+	db.user.findOne({
+		where: {
+			id: req.user.id
+
+		},
+		include: [db.character, db.spaceship]
+	}).then(function (data) {
+		var renderInfo = data.dataValues;
+
+		res.render('stage5', {
+			character: renderInfo.character.name,
+			health: renderInfo.character.health,
+			avatar: renderInfo.character.charImg,
+			money: renderInfo.character.money,
+			ship: renderInfo.spaceship.shipImg,
+			fuel: renderInfo.spaceship.fuel
+		});
+	})
+});
+
 //this route is used to keep the character specific information update on game tile 
 router.get("/game", function (req, res) {
 	db.user.findOne({
@@ -125,27 +188,6 @@ router.get("/game", function (req, res) {
 		});
 	})
 });
-
-// router.get("/stage1", function (req, res) {
-// 	db.user.findOne({
-// 		where: {
-// 			id: req.user.id
-
-// 		},
-// 		include: [db.character, db.spaceship]
-// 	}).then(function (data) {
-// 		var renderInfo = data.dataValues;
-
-// 		res.render('game', {
-// 			character: renderInfo.character.name,
-// 			health: renderInfo.character.health,
-// 			avatar: renderInfo.character.charImg,
-// 			money: renderInfo.character.money,
-// 			ship: renderInfo.spaceship.shipImg,
-// 			fuel: renderInfo.spaceship.fuel
-// 		});
-// 	})
-// });
 
 router.get("/")
 
