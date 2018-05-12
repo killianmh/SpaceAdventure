@@ -91,6 +91,9 @@ router.get("/modal", function (req, res) {
 	res.render("index");
 	var modal = document.getElementById('#exampleModal');
 	modal.style.display = "block";
+
+
+
 });
 
 // Export routes for server.js to use.
