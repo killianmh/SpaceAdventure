@@ -6,18 +6,41 @@ $(function () {
 
     //each button can have a data-route that corresponds with an extension on the game route 
     $('.gameChoice').on('click', function (event) {
+        // var charId = user.id;
+        console.log('test');
+        //stage 1:
+        if($(this).attr('data-stage') == "1"){
+            $.ajax('/api/character', {
+                type: 'PUT'
+            }).then(
+                function(){
+                    console.log('in the route change');
+                    // $.ajax('/stage1', {
+                    //     type: 'POST'
+                    // })
+                    location.assign("stage1");
+                }
+               
+            )
+            
+        }
 
-        event.preventDefault();
-
-        var gameRoute = this.attr('data-route');
-
-        $.ajax('/game/' + gameRoute, {
-            type: 'POST'
-        }).then(
-            function () {
-
-            }
-        );
+        if($(this).attr('data-stage') == "2"){
+            $.ajax('/api/character', {
+                type: 'PUT'
+            }).then(
+                function(){
+                    console.log('in the route change');
+                    // $.ajax('/stage1', {
+                    //     type: 'POST'
+                    // })
+                    location.assign("stage2");
+                }
+               
+            )
+            
+        }
+      
     });
 
     //*******************************
