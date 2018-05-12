@@ -43,3 +43,11 @@ button {
 	height: 15vw;
 	object-fit: cover;
 }
+
+.chosenChar {
+	border: 5px solid red !important;
+}
+
+.chosenShip {
+	border: 5px solid red !important;
+}
