@@ -37,6 +37,30 @@ router.post("/api/spaceship", function (req, res) {
 		});
 });
 
+//put route to refresh values after restarting:
+router.delete("/api/restart", function (req, res) {
+
+	db.character.destroy({
+			where:
+				{ userId: req.user.id }
+		}
+
+	).then(function (data) {
+		db.spaceship.destroy({
+			where:
+				{ userId: req.user.id }
+		}
+
+		).then(function (data) {
+			res.end();
+		})
+	})
+
+	
+
+});
+
+
 //put route updates certain values pertaining to character based on events ex. when damage is taken, health value is adjusted in DB
 router.put("/api/character", function (req, res) {
 
