@@ -32,11 +32,5 @@ module.exports = function (sequelize, DataTypes) {
         });
     };
 
-    character.associate = function (models) {
-        character.hasOne(models.spaceship, {
-            onDelete: "cascade"
-        });
-    };
-
     return character;
 };

@@ -12,7 +12,7 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     spaceship.associate = function (models) {
-        spaceship.belongsTo(models.character, {
+        spaceship.belongsTo(models.user, {
             foreignKey: {
                 allowNull: false
             }
