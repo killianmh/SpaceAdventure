@@ -53,17 +53,22 @@ router.get("/", function (req, res) {
 
 //this route is used to keep the character specific information update on game tile 
 router.get("/game", function (req, res) {
-	db.character.findOne({
+	db.user.findOne({
 		where: {
-			userId: req.user.id
+			id: req.user.id
 
-		}
+		},
+		include: [db.character,db.spaceship]
 	}).then(function (data) {
+		var renderInfo = data.dataValues;
+		
 		res.render('game', {
-			character: data.name,
-			health: data.health,
-			avatar: data.charImg,
-			money: data.money
+			character: renderInfo.character.name,
+			health: renderInfo.character.health,
+			avatar: renderInfo.character.charImg,
+			money: renderInfo.character.money,
+			ship: renderInfo.spaceship.shipImg,
+			fuel: renderInfo.spaceship.fuel
 		});
 	})
 });
