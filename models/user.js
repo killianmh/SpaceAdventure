@@ -23,9 +23,12 @@ module.exports = function (sequelize, Sequelize) {
 	});
 
 	User.associate = function (models) {
-		User.hasMany(models.character, {
+		User.hasOne(models.character, {
 			onDelete: "cascade"
 		});
+		User.hasOne(models.spaceship, {
+			onDelete: "cascade"
+		})
 	};
 
 	return User;
