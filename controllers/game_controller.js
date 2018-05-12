@@ -75,13 +75,13 @@ router.get('/shipselect', function (req, res) {
 });
 
 //passport
-router.get("/signup", function (req, res) {
-	res.render("signup");
-});
+// router.get("/signup", function (req, res) {
+// 	res.render("signup");
+// });
 
-router.get("/signin", function (req, res) {
-	res.render("signin");
-});
+// router.get("/signin", function (req, res) {
+// 	res.render("signin");
+// });
 
 router.get("/dashboard", isLoggedIn, function (req, res) {
 	res.render('dashboard');
@@ -93,14 +93,29 @@ router.get("/logout", function (req, res) {
 	})
 })
 
+router.get("/modal", function (req, res) {
+	res.render("index");
+	var modal = document.getElementById('#exampleModal');
+	modal.style.display = "block";
+		
+	
+	
+	});
+
 // Export routes for server.js to use.
 // module.exports = router;
 
 module.exports = function (passport) {
-	router.post("/signup", passport.authenticate('local-signup', {
-		successRedirect: '/characterselect',
-		failureRedirect: '/signup'
-	}));
+	router.post("/signup", function(req, res, next) {
+		passport.authenticate('local-signup', function(err, user, info) {
+		  if (err) { return next(err); }
+		  if (!user) { return; }
+		  req.logIn(user, function(err) {
+			if (err) { return next(err); }
+			return res.redirect('/characterselect');
+		  });
+		})(req, res, next);
+	  });
 
 	router.post("/signin", passport.authenticate('local-signin', {
 		successRedirect: '/characterselect',
