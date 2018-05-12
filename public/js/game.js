@@ -1,5 +1,27 @@
 $(function () {
 
+    //counter increased after each choice
+    //this doesn't take into account the two different options for some game stages
+    var gameStage = 0;
+
+    //each button can have a data-route that corresponds with an extension on the game route 
+    $('.gameChoice').on('click', function (event) {
+
+        event.preventDefault();
+
+        var gameRoute = this.attr('data-route');
+
+        $.ajax('/game/' + gameRoute, {
+            type: 'POST'
+        }).then(
+            function () {
+
+            }
+        );
+    });
+
+    //*******************************
+
     //handles selection of character avatar
     $(".charId").on("click", function (event) {
         // alert("clicked!");
