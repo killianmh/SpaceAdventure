@@ -9,38 +9,34 @@ $(function () {
         // var charId = user.id;
         console.log('test');
         //stage 1:
-        if($(this).attr('data-stage') == "1"){
+        if ($(this).attr('data-stage') == "1") {
             $.ajax('/api/character', {
                 type: 'PUT'
             }).then(
-                function(){
+                function () {
                     console.log('in the route change');
-                    // $.ajax('/stage1', {
-                    //     type: 'POST'
-                    // })
+
                     location.assign("stage1");
                 }
-               
+
             )
-            
+
         }
 
-        if($(this).attr('data-stage') == "2"){
+        if ($(this).attr('data-stage') == "2") {
             $.ajax('/api/character', {
                 type: 'PUT'
             }).then(
-                function(){
+                function () {
                     console.log('in the route change');
-                    // $.ajax('/stage1', {
-                    //     type: 'POST'
-                    // })
+
                     location.assign("stage2");
                 }
-               
+
             )
-            
+
         }
-      
+
     });
 
     //*******************************

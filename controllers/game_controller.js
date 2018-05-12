@@ -39,22 +39,22 @@ router.post("/api/spaceship", function (req, res) {
 
 //put route updates certain values pertaining to character based on events ex. when damage is taken, health value is adjusted in DB
 router.put("/api/character", function (req, res) {
-	
+
 	db.character.update({
 		name: "bill"
-	}, {where:
-		{userId: req.user.id}}
+	}, {
+			where:
+				{ userId: req.user.id }
+		}
 
 	).then(function (data) {
 		res.end();
 	})
 
-
-
 });
 //put route updates certain values pertaining to character based on events ex. when damage is taken, health value is adjusted in DB
 router.put("/api/spaceship", function (req, res) {
-	
+
 
 });
 
@@ -68,11 +68,32 @@ router.get("/stage1", function (req, res) {
 			id: req.user.id
 
 		},
-		include: [db.character,db.spaceship]
+		include: [db.character, db.spaceship]
 	}).then(function (data) {
 		var renderInfo = data.dataValues;
-		
-		res.render('game', {
+
+		res.render('stage1', {
+			character: renderInfo.character.name,
+			health: renderInfo.character.health,
+			avatar: renderInfo.character.charImg,
+			money: renderInfo.character.money,
+			ship: renderInfo.spaceship.shipImg,
+			fuel: renderInfo.spaceship.fuel
+		});
+	})
+});
+
+router.get("/stage2", function (req, res) {
+	db.user.findOne({
+		where: {
+			id: req.user.id
+
+		},
+		include: [db.character, db.spaceship]
+	}).then(function (data) {
+		var renderInfo = data.dataValues;
+
+		res.render('stage2', {
 			character: renderInfo.character.name,
 			health: renderInfo.character.health,
 			avatar: renderInfo.character.charImg,
@@ -90,10 +111,10 @@ router.get("/game", function (req, res) {
 			id: req.user.id
 
 		},
-		include: [db.character,db.spaceship]
+		include: [db.character, db.spaceship]
 	}).then(function (data) {
 		var renderInfo = data.dataValues;
-		
+
 		res.render('game', {
 			character: renderInfo.character.name,
 			health: renderInfo.character.health,
@@ -105,26 +126,26 @@ router.get("/game", function (req, res) {
 	})
 });
 
-router.get("/stage1", function (req, res) {
-	db.user.findOne({
-		where: {
-			id: req.user.id
+// router.get("/stage1", function (req, res) {
+// 	db.user.findOne({
+// 		where: {
+// 			id: req.user.id
 
-		},
-		include: [db.character,db.spaceship]
-	}).then(function (data) {
-		var renderInfo = data.dataValues;
-		
-		res.render('game', {
-			character: renderInfo.character.name,
-			health: renderInfo.character.health,
-			avatar: renderInfo.character.charImg,
-			money: renderInfo.character.money,
-			ship: renderInfo.spaceship.shipImg,
-			fuel: renderInfo.spaceship.fuel
-		});
-	})
-});
+// 		},
+// 		include: [db.character, db.spaceship]
+// 	}).then(function (data) {
+// 		var renderInfo = data.dataValues;
+
+// 		res.render('game', {
+// 			character: renderInfo.character.name,
+// 			health: renderInfo.character.health,
+// 			avatar: renderInfo.character.charImg,
+// 			money: renderInfo.character.money,
+// 			ship: renderInfo.spaceship.shipImg,
+// 			fuel: renderInfo.spaceship.fuel
+// 		});
+// 	})
+// });
 
 router.get("/")
 

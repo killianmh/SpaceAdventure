@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="/css/storystyle2.css">
+
+
+
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3" id="bsolid">
+				<div class="card border-dark mb-3" style="width: 10rem;" id="playercard">
+					<img class="card-img-top avatar" src={{avatar}} alt="Card image cap">
+				</div>
+
+				<h1 class="storyh1">
+
+					{{character}}
+
+				</h1>
+
+				<button type="button" class="btn btn-danger" id="health">
+					Health
+					<span class="badge badge-light">{{health}}</span>
+					<!-- <span class="sr-only">unread messages</span> -->
+				</button>
+
+				<button type="button" class="btn btn-primary" id="money">
+					Money
+					<span class="badge badge-light">{{money}}</span>
+					<!-- <span class="sr-only">unread messages</span> -->
+				</button>
+
+				<div class="card border-dark mb-3" style="width: 10rem;" id="playercard">
+					<img class="card-img-top" src={{ship}} alt="Card image cap">
+				</div>
+
+				<button type="button" class="btn btn-primary" id="money">
+					Fuel
+					<span class="badge badge-light">{{fuel}}</span>
+					<!-- <span class="sr-only">unread messages</span> -->
+				</button>
+			</div>
+			<div class="col-sm-9 mx-auto text-center">
+				<div class="card border-dark mb-3" style="width: 50rem;" id="card1">
+					<img class="card-img-top" src="./images/courage.jpg" alt="Card image cap">
+					<div class="card-body">
+						<p class="card-text">Pffft. Not much of an adventurer are you? I mean, surely you avoided almost certain death, but what do you have to
+							show for it? We'll keep looking for somebody who can actually save the day!</p>
+					</div>
+
+				</div>
+				{{!--
+				<button type="button" data-stage=3 class="gameChoice btn btn-outline-light ">Yes</button>
+				<button type="button" data-stage=4 class="gameChoice btn btn-outline-light ">No</button> --}}
+			</div>
+
+</body>
