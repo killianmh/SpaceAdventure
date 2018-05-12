@@ -74,17 +74,6 @@ router.get('/shipselect', function (req, res) {
 	res.render("ship-select");
 });
 
-
-
-//passport
-// router.get("/signup", function (req, res) {
-// 	res.render("signup");
-// });
-
-// router.get("/signin", function (req, res) {
-// 	res.render("signin");
-// });
-
 router.get("/dashboard", isLoggedIn, function (req, res) {
 	res.render('dashboard');
 })
@@ -122,6 +111,7 @@ module.exports = function (passport) {
 	router.post("/signin", passport.authenticate('local-signin', {
 		successRedirect: '/characterselect',
 		failureRedirect: '/signin'
-	}))
-	return router
+	}));
+
+	return router;
 }
