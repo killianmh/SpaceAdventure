@@ -26,8 +26,9 @@ body {
 
 
 #playercard {
-    margin-top:40px;
+ 
 	margin: 0 auto;
+	margin-top:20px;
 }
 
 button {

@@ -11,12 +11,12 @@ module.exports = function (sequelize, DataTypes) {
         health: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            defaultValue: 100
+            defaultValue: 10
         },
-        money: {
+        sanity: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            defaultValue: 25
+            defaultValue: 10
         },
         charImg: {
             type: DataTypes.STRING,
