@@ -16,8 +16,21 @@
 				</button>
 				<button type="button" class="btn btn-primary" id="sanity">
 					Sanity
-					<span class="badge badge-light">10</span>
+					<span class="badge badge-light">{{sanity}}</span>
 				</button>
+
+
+				<div class="card border-dark mb-3" style="width: 10rem;" id="playercard">
+					<img class="card-img-top" src={{ship}} alt="Card image cap">
+				</div>
+
+				<button type="button" class="btn btn-warning" id="shields">
+					<i class="fas fa-shield-alt"></i> Shields
+					<span class="badge badge-light">
+						{{shields}}</span>
+					<!-- <span class="sr-only">unread messages</span> -->
+				</button>
+
 			</div>
 			<div class="col-sm-9 mx-auto text-center">
 				<div class="card border-dark mb-3" style="width: 50rem;" id="card1">

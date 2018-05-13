@@ -93,9 +93,9 @@ router.get("/game", function (req, res) {
 			character: renderInfo.character.name,
 			health: renderInfo.character.health,
 			avatar: renderInfo.character.charImg,
-			money: renderInfo.character.money,
+			sanity: renderInfo.character.sanity,
 			ship: renderInfo.spaceship.shipImg,
-			fuel: renderInfo.spaceship.fuel
+			shields: renderInfo.spaceship.shields
 		});
 	})
 });
@@ -114,9 +114,9 @@ router.get("/stage1", function (req, res) {
 			character: renderInfo.character.name,
 			health: renderInfo.character.health,
 			avatar: renderInfo.character.charImg,
-			money: renderInfo.character.money,
+			sanity: renderInfo.character.sanity,
 			ship: renderInfo.spaceship.shipImg,
-			fuel: renderInfo.spaceship.fuel
+			shields: renderInfo.spaceship.shields
 		});
 	})
 });
@@ -135,9 +135,9 @@ router.get("/result1", function (req, res) {
 			character: renderInfo.character.name,
 			health: renderInfo.character.health,
 			avatar: renderInfo.character.charImg,
-			money: renderInfo.character.money,
+			sanity: renderInfo.character.sanity,
 			ship: renderInfo.spaceship.shipImg,
-			fuel: renderInfo.spaceship.fuel
+			shields: renderInfo.spaceship.shields
 		});
 	})
 });
@@ -156,9 +156,9 @@ router.get("/stage2", function (req, res) {
 			character: renderInfo.character.name,
 			health: renderInfo.character.health,
 			avatar: renderInfo.character.charImg,
-			money: renderInfo.character.money,
+			sanity: renderInfo.character.sanity,
 			ship: renderInfo.spaceship.shipImg,
-			fuel: renderInfo.spaceship.fuel
+			shields: renderInfo.spaceship.shields
 		});
 	})
 });
@@ -177,9 +177,9 @@ router.get("/stage3", function (req, res) {
 			character: renderInfo.character.name,
 			health: renderInfo.character.health,
 			avatar: renderInfo.character.charImg,
-			money: renderInfo.character.money,
+			sanity: renderInfo.character.sanity,
 			ship: renderInfo.spaceship.shipImg,
-			fuel: renderInfo.spaceship.fuel
+			shields: renderInfo.spaceship.shields
 		});
 	})
 });
@@ -198,9 +198,9 @@ router.get("/result2", function (req, res) {
 			character: renderInfo.character.name,
 			health: renderInfo.character.health,
 			avatar: renderInfo.character.charImg,
-			money: renderInfo.character.money,
+			sanity: renderInfo.character.sanity,
 			ship: renderInfo.spaceship.shipImg,
-			fuel: renderInfo.spaceship.fuel
+			shields: renderInfo.spaceship.shields
 		});
 	})
 });
@@ -219,9 +219,9 @@ router.get("/result3", function (req, res) {
 			character: renderInfo.character.name,
 			health: renderInfo.character.health,
 			avatar: renderInfo.character.charImg,
-			money: renderInfo.character.money,
+			sanity: renderInfo.character.sanity,
 			ship: renderInfo.spaceship.shipImg,
-			fuel: renderInfo.spaceship.fuel
+			shields: renderInfo.spaceship.shields
 		});
 	})
 });
@@ -240,9 +240,9 @@ router.get("/stage4", function (req, res) {
 			character: renderInfo.character.name,
 			health: renderInfo.character.health,
 			avatar: renderInfo.character.charImg,
-			money: renderInfo.character.money,
+			sanity: renderInfo.character.sanity,
 			ship: renderInfo.spaceship.shipImg,
-			fuel: renderInfo.spaceship.fuel
+			shields: renderInfo.spaceship.shields
 		});
 	})
 });
@@ -261,9 +261,9 @@ router.get("/asteroid", function (req, res) {
 			character: renderInfo.character.name,
 			health: renderInfo.character.health,
 			avatar: renderInfo.character.charImg,
-			money: renderInfo.character.money,
+			sanity: renderInfo.character.sanity,
 			ship: renderInfo.spaceship.shipImg,
-			fuel: renderInfo.spaceship.fuel
+			shields: renderInfo.spaceship.shields
 		});
 	})
 });
