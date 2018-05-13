@@ -10,7 +10,7 @@ function isLoggedIn(req, res, next) {
 	if (req.isAuthenticated())
 		return next();
 	res.redirect('/signin');
-}
+};
 
 //post route uses the character model to create our character with the users choice of name
 //DO WE NEED TO SAVE AVATARRRRRRRR
@@ -41,23 +41,19 @@ router.post("/api/spaceship", function (req, res) {
 router.delete("/api/restart", function (req, res) {
 
 	db.character.destroy({
-			where:
-				{ userId: req.user.id }
-		}
-
-	).then(function (data) {
-		db.spaceship.destroy({
-			where:
-				{ userId: req.user.id }
-		}
-
-		).then(function (data) {
-			res.end();
-		})
+		where:
+			{ userId: req.user.id }
 	})
+		.then(function (data) {
+			db.spaceship.destroy({
+				where:
+					{ userId: req.user.id }
+			}
 
-	
-
+			).then(function (data) {
+				res.end();
+			});
+		});
 });
 
 
@@ -76,15 +72,33 @@ router.put("/api/character", function (req, res) {
 	})
 
 });
-//put route updates certain values pertaining to character based on events ex. when damage is taken, health value is adjusted in DB
-router.put("/api/spaceship", function (req, res) {
 
-
-});
 
 router.get("/", function (req, res) {
 	res.render("index");
-})
+});
+
+//this route is used to keep the character specific information update on game tile 
+router.get("/game", function (req, res) {
+	db.user.findOne({
+		where: {
+			id: req.user.id
+
+		},
+		include: [db.character, db.spaceship]
+	}).then(function (data) {
+		var renderInfo = data.dataValues;
+
+		res.render('game', {
+			character: renderInfo.character.name,
+			health: renderInfo.character.health,
+			avatar: renderInfo.character.charImg,
+			money: renderInfo.character.money,
+			ship: renderInfo.spaceship.shipImg,
+			fuel: renderInfo.spaceship.fuel
+		});
+	})
+});
 
 router.get("/stage1", function (req, res) {
 	db.user.findOne({
@@ -97,6 +111,27 @@ router.get("/stage1", function (req, res) {
 		var renderInfo = data.dataValues;
 
 		res.render('stage1', {
+			character: renderInfo.character.name,
+			health: renderInfo.character.health,
+			avatar: renderInfo.character.charImg,
+			money: renderInfo.character.money,
+			ship: renderInfo.spaceship.shipImg,
+			fuel: renderInfo.spaceship.fuel
+		});
+	})
+});
+
+router.get("/result1", function (req, res) {
+	db.user.findOne({
+		where: {
+			id: req.user.id
+
+		},
+		include: [db.character, db.spaceship]
+	}).then(function (data) {
+		var renderInfo = data.dataValues;
+
+		res.render('result1', {
 			character: renderInfo.character.name,
 			health: renderInfo.character.health,
 			avatar: renderInfo.character.charImg,
@@ -149,6 +184,48 @@ router.get("/stage3", function (req, res) {
 	})
 });
 
+router.get("/result2", function (req, res) {
+	db.user.findOne({
+		where: {
+			id: req.user.id
+
+		},
+		include: [db.character, db.spaceship]
+	}).then(function (data) {
+		var renderInfo = data.dataValues;
+
+		res.render('result2', {
+			character: renderInfo.character.name,
+			health: renderInfo.character.health,
+			avatar: renderInfo.character.charImg,
+			money: renderInfo.character.money,
+			ship: renderInfo.spaceship.shipImg,
+			fuel: renderInfo.spaceship.fuel
+		});
+	})
+});
+
+router.get("/result3", function (req, res) {
+	db.user.findOne({
+		where: {
+			id: req.user.id
+
+		},
+		include: [db.character, db.spaceship]
+	}).then(function (data) {
+		var renderInfo = data.dataValues;
+
+		res.render('result3', {
+			character: renderInfo.character.name,
+			health: renderInfo.character.health,
+			avatar: renderInfo.character.charImg,
+			money: renderInfo.character.money,
+			ship: renderInfo.spaceship.shipImg,
+			fuel: renderInfo.spaceship.fuel
+		});
+	})
+});
+
 router.get("/stage4", function (req, res) {
 	db.user.findOne({
 		where: {
@@ -170,7 +247,7 @@ router.get("/stage4", function (req, res) {
 	})
 });
 
-router.get("/stage5", function (req, res) {
+router.get("/asteroid", function (req, res) {
 	db.user.findOne({
 		where: {
 			id: req.user.id
@@ -180,7 +257,7 @@ router.get("/stage5", function (req, res) {
 	}).then(function (data) {
 		var renderInfo = data.dataValues;
 
-		res.render('stage5', {
+		res.render('asteroid', {
 			character: renderInfo.character.name,
 			health: renderInfo.character.health,
 			avatar: renderInfo.character.charImg,
@@ -190,30 +267,6 @@ router.get("/stage5", function (req, res) {
 		});
 	})
 });
-
-//this route is used to keep the character specific information update on game tile 
-router.get("/game", function (req, res) {
-	db.user.findOne({
-		where: {
-			id: req.user.id
-
-		},
-		include: [db.character, db.spaceship]
-	}).then(function (data) {
-		var renderInfo = data.dataValues;
-
-		res.render('game', {
-			character: renderInfo.character.name,
-			health: renderInfo.character.health,
-			avatar: renderInfo.character.charImg,
-			money: renderInfo.character.money,
-			ship: renderInfo.spaceship.shipImg,
-			fuel: renderInfo.spaceship.fuel
-		});
-	})
-});
-
-router.get("/")
 
 //for loading character select screen
 router.get("/characterselect", function (req, res) {

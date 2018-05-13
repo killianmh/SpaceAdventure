@@ -14,13 +14,9 @@ $(function () {
                 type: 'PUT'
             }).then(
                 function () {
-                    console.log('in the route change');
-
-                    location.assign("stage1");
+                    location.assign("result1");
                 }
-
             )
-
         }
 
         if ($(this).attr('data-stage') == "2") {
@@ -28,15 +24,60 @@ $(function () {
                 type: 'PUT'
             }).then(
                 function () {
-                    console.log('in the route change');
-
                     location.assign("stage2");
                 }
-
             )
-
         }
 
+        if ($(this).attr('data-stage') == "3") {
+            $.ajax('/api/character', {
+                type: 'PUT'
+            }).then(
+                function () {
+                    location.assign("stage3");
+                }
+            )
+        }
+
+        if ($(this).attr('data-stage') == "4") {
+            $.ajax('/api/character', {
+                type: 'PUT'
+            }).then(
+                function () {
+                    location.assign("result2");
+                }
+            )
+        }
+
+        if ($(this).attr('data-stage') == "5") {
+            $.ajax('/api/character', {
+                type: 'PUT'
+            }).then(
+                function () {
+                    location.assign("result3");
+                }
+            )
+        }
+
+        if ($(this).attr('data-stage') == "6") {
+            $.ajax('/api/character', {
+                type: 'PUT'
+            }).then(
+                function () {
+                    location.assign("stage4");
+                }
+            )
+        }
+
+        if ($(this).attr('data-stage') == "7") {
+            $.ajax('/api/character', {
+                type: 'PUT'
+            }).then(
+                function () {
+                    location.assign("asteroid");
+                }
+            )
+        }
     });
 
     //*******************************
@@ -98,10 +139,10 @@ $(function () {
     $(".restart").on("click", function (even) {
         $.ajax('/api/restart', {
             type: 'DELETE'
-        }).then(function(){
+        }).then(function () {
             location.assign('/characterselect');
         })
-        
+
     });
 
 

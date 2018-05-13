@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/css/storystyle2.css">
+
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3" id="bsolid">
+				<div class="card border-dark mb-3" style="width: 10rem;" id="playercard">
+					<img class="card-img-top" src={{avatar}} alt="Card image cap">
+				</div>
+				<h1 class="storyh1">
+					{{character}}
+				</h1>
+				<button type="button" class="btn btn-danger" id="health">
+					Health
+					<span class="badge badge-light">{{health}}</span>
+				</button>
+				<button type="button" class="btn btn-primary" id="sanity">
+					Sanity
+					<span class="badge badge-light">10</span>
+				</button>
+			</div>
+			<div class="col-sm-9 mx-auto text-center">
+				<img class="card-img-top" src="./images/fixd.gif" alt="Card image cap">
+				<div class="card-body">
+					<p class="card-text">You decided to ignore a very serious problem, and should be dead. Luckily for you there was another crewmwmber with
+						a much more 'hands-on' approach to help 'fix' the problem. Hopefully it will be clear sailing from here.</p>
+				</div>
+				<button type="button" data-stage=6 class="gameChoice btn btn-outline-light ">Continue...</button>
+			</div>
+		</div>
+	</div>
+</body>
