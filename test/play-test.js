@@ -25,24 +25,3 @@ describe("spacerats", function () {
 		// });
 	});
 });
-
-// 	it("should present a link to course catalog after login", function (done) {
-// 		new Nightmare({ show: true })
-// 			.goto("https://www.codecademy.com/login")
-// 			// Enter username.
-// 			.type("#user_login", "ResilD")
-// 			// Enter password.
-// 			.type("#login__user_password", "dummy*password")
-// 			// Click the login button
-// 			.click("#user_submit")
-// 			// Evaluate the following selector
-// 			.evaluate(function () {
-// 				// Assert the "learn" link can be found
-// 				return document.querySelector("a[href='/learn']");
-// 			})
-// 			.then(function (link) {
-// 				expect(link).to.not.equal(undefined);
-// 				done();
-// 			});
-// 	});
-// });
