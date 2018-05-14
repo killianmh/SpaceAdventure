@@ -264,6 +264,137 @@ router.get("/asteroid", function (req, res) {
 			sanity: renderInfo.character.sanity,
 			ship: renderInfo.spaceship.shipImg,
 			shields: renderInfo.spaceship.shields
+			//if we wanted or needed to, we can fake keeping track of the values by just inserting the appropriate ones.  
+			//here, the result of this slide was to lose 2 shields, so i ust set it to 8
+			// shields: 8
+		});
+	})
+});
+
+router.get("/asteroid2", function (req, res) {
+	db.user.findOne({
+		where: {
+			id: req.user.id
+
+		},
+		include: [db.character, db.spaceship]
+	}).then(function (data) {
+		var renderInfo = data.dataValues;
+
+		res.render('asteroid2', {
+			character: renderInfo.character.name,
+			health: renderInfo.character.health,
+			avatar: renderInfo.character.charImg,
+			sanity: renderInfo.character.sanity,
+			ship: renderInfo.spaceship.shipImg,
+			shields: renderInfo.spaceship.shields
+
+			// shields: 2
+		});
+	})
+});
+
+router.get("/jump2warp", function (req, res) {
+	db.user.findOne({
+		where: {
+			id: req.user.id
+
+		},
+		include: [db.character, db.spaceship]
+	}).then(function (data) {
+		var renderInfo = data.dataValues;
+
+		res.render('jump2warp', {
+			character: renderInfo.character.name,
+			health: renderInfo.character.health,
+			avatar: renderInfo.character.charImg,
+			sanity: renderInfo.character.sanity,
+			ship: renderInfo.spaceship.shipImg,
+			shields: renderInfo.spaceship.shields
+		});
+	})
+});
+
+router.get("/blackhole", function (req, res) {
+	db.user.findOne({
+		where: {
+			id: req.user.id
+
+		},
+		include: [db.character, db.spaceship]
+	}).then(function (data) {
+		var renderInfo = data.dataValues;
+
+		res.render('blackhole', {
+			character: renderInfo.character.name,
+			health: renderInfo.character.health,
+			avatar: renderInfo.character.charImg,
+			sanity: renderInfo.character.sanity,
+			ship: renderInfo.spaceship.shipImg,
+			shields: renderInfo.spaceship.shields
+		});
+	})
+});
+
+router.get("/spacecats", function (req, res) {
+	db.user.findOne({
+		where: {
+			id: req.user.id
+
+		},
+		include: [db.character, db.spaceship]
+	}).then(function (data) {
+		var renderInfo = data.dataValues;
+
+		res.render('spacecats', {
+			character: renderInfo.character.name,
+			health: renderInfo.character.health,
+			avatar: renderInfo.character.charImg,
+			sanity: renderInfo.character.sanity,
+			ship: renderInfo.spaceship.shipImg,
+			shields: renderInfo.spaceship.shields
+		});
+	})
+});
+
+router.get("/spacefight", function (req, res) {
+	db.user.findOne({
+		where: {
+			id: req.user.id
+
+		},
+		include: [db.character, db.spaceship]
+	}).then(function (data) {
+		var renderInfo = data.dataValues;
+
+		res.render('spacefight', {
+			character: renderInfo.character.name,
+			health: renderInfo.character.health,
+			avatar: renderInfo.character.charImg,
+			sanity: renderInfo.character.sanity,
+			ship: renderInfo.spaceship.shipImg,
+			shields: renderInfo.spaceship.shields
+		});
+	})
+});
+
+router.get("/spaceflight", function (req, res) {
+	db.user.findOne({
+		where: {
+			id: req.user.id
+
+		},
+		include: [db.character, db.spaceship]
+	}).then(function (data) {
+		var renderInfo = data.dataValues;
+
+		res.render('spaceflight', {
+			character: renderInfo.character.name,
+			health: renderInfo.character.health,
+			avatar: renderInfo.character.charImg,
+			sanity: renderInfo.character.sanity,
+			ship: renderInfo.spaceship.shipImg,
+			shields: renderInfo.spaceship.shields
 		});
 	})
 });

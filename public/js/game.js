@@ -78,6 +78,77 @@ $(function () {
                 }
             )
         }
+
+        if ($(this).attr('data-stage') == "8") {
+
+            $.ajax('/api/character', {
+                type: 'PUT'
+
+            }).then(
+                function () {
+                    location.assign("asteroid2");
+                }
+            )
+        }
+
+
+        if ($(this).attr('data-stage') == "9") {
+            $.ajax('/api/character', {
+                type: 'PUT'
+
+            }).then(
+                function () {
+                    location.assign("jump2warp");
+                }
+            )
+        }
+
+
+        if ($(this).attr('data-stage') == "10") {
+            $.ajax('/api/character', {
+                type: 'PUT'
+
+            }).then(
+                function () {
+                    location.assign("blackhole");
+                }
+            )
+        }
+
+
+        if ($(this).attr('data-stage') == "11") {
+            $.ajax('/api/character', {
+                type: 'PUT'
+
+            }).then(
+                function () {
+                    location.assign("spacecats");
+                }
+            )
+        }
+
+
+        if ($(this).attr('data-stage') == "12") {
+            $.ajax('/api/character', {
+                type: 'PUT'
+
+            }).then(
+                function () {
+                    location.assign("spacefight");
+                }
+            )
+        }
+
+        if ($(this).attr('data-stage') == "13") {
+            $.ajax('/api/character', {
+                type: 'PUT'
+
+            }).then(
+                function () {
+                    location.assign("spaceflight");
+                }
+            )
+        }
     });
 
     //*******************************
