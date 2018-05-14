@@ -61,7 +61,7 @@ router.delete("/api/restart", function (req, res) {
 router.put("/api/character", function (req, res) {
 
 	db.character.update({
-		name: "bill"
+		// name: "bill"
 	}, {
 			where:
 				{ userId: req.user.id }

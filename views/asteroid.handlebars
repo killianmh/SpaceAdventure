@@ -1,40 +1,54 @@
 <link rel="stylesheet" href="/css/storystyle2.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+ crossorigin="anonymous">
+
 
 <body>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-3" id="bsolid">
-				<div class="card border-dark mb-3" style="width: 10rem;" id="playercard">
+				<div class="card border-dark mb-3" style="width: 12rem;" id="playercard">
 					<img class="card-img-top avatar" src={{avatar}} alt="Card image cap">
 				</div>
+
 				<h1 class="storyh1">
+
 					{{character}}
+
 				</h1>
+
 				<button type="button" class="btn btn-danger" id="health">
-					Health
+					<i class="fas fa-heart"></i> Health
 					<span class="badge badge-light">{{health}}</span>
+					<!-- <span class="sr-only">unread messages</span> -->
 				</button>
+
 				<button type="button" class="btn btn-primary" id="money">
-					Money
-					<span class="badge badge-light">{{money}}</span>
+					<i class="fas fa-user-astronaut"></i> Sanity
+					<span class="badge badge-light">{{sanity}}</span>
+					<!-- <span class="sr-only">unread messages</span> -->
 				</button>
+
 				<div class="card border-dark mb-3" style="width: 10rem;" id="playercard">
 					<img class="card-img-top" src={{ship}} alt="Card image cap">
 				</div>
-				<button type="button" class="btn btn-primary" id="money">
-					Fuel
-					<span class="badge badge-light">{{fuel}}</span>
+
+				<button type="button" class="btn btn-warning" id="shields">
+					<i class="fas fa-shield-alt"></i> Shields
+					<span class="badge badge-light">
+						{{shields}}</span>
+					<!-- <span class="sr-only">unread messages</span> -->
 				</button>
 			</div>
 			<div class="col-sm-9 mx-auto text-center">
-				<img class="card-img-top" src="./images/source.gif" alt="Card image cap">
-				<div class="card-body">
-					<p class="card-text">"Here I want to implement a version of asteroids similar to this."</p>
-					<a class="placeholder4" href="http://www.dougmcinnes.com/2010/05/12/html-5-asteroids/">
-						<div class="textwrap">http://www.dougmcinnes.com/2010/05/12/html-5-asteroids/</div>
-					</a>
+				<div class="card border-dark mb-3" style="width: 40rem;" id="card1">
+					<img class="card-img-top" src="./images/source.gif" alt="Card image cap">
+					<div class="card-body">
+						<p class="card-text">"Flying around is surely the safer choice. however, due to not having space internet, lose 2 Sanity from space boredom."</p>
+
+					</div>
 				</div>
-				<button type="button" data-stage=4 class="gameChoice btn btn-outline-light ">Play Again!</button>
+				<button type="button" data-stage=4 class="gameChoice btn btn-outline-light ">Continue</button>
 			</div>
 		</div>
 	</div>
