@@ -250,7 +250,7 @@ router.get("/stage4", function (req, res) {
 router.get("/asteroid", function (req, res) {
 	db.user.findOne({
 		where: {
-			id: req.user.id,
+			id: req.user.id
 		},
 		include: [db.character, db.spaceship]
 	}).then(function (data) {
