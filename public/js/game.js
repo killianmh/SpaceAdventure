@@ -250,6 +250,7 @@ $(function () {
     });
 
 
+
     //This is RJ's javascript that handles our beautiful landing page
     const left = document.querySelector('.left');
     const right = document.querySelector('.right');
