@@ -399,6 +399,48 @@ router.get("/spaceflight", function (req, res) {
 	})
 });
 
+router.get("/tbc", function (req, res) {
+	db.user.findOne({
+		where: {
+			id: req.user.id
+
+		},
+		include: [db.character, db.spaceship]
+	}).then(function (data) {
+		var renderInfo = data.dataValues;
+
+		res.render('tbc', {
+			character: renderInfo.character.name,
+			health: renderInfo.character.health,
+			avatar: renderInfo.character.charImg,
+			sanity: renderInfo.character.sanity,
+			ship: renderInfo.spaceship.shipImg,
+			shields: renderInfo.spaceship.shields
+		});
+	})
+});
+
+router.get("/dlc", function (req, res) {
+	db.user.findOne({
+		where: {
+			id: req.user.id
+
+		},
+		include: [db.character, db.spaceship]
+	}).then(function (data) {
+		var renderInfo = data.dataValues;
+
+		res.render('dlc', {
+			character: renderInfo.character.name,
+			health: renderInfo.character.health,
+			avatar: renderInfo.character.charImg,
+			sanity: renderInfo.character.sanity,
+			ship: renderInfo.spaceship.shipImg,
+			shields: renderInfo.spaceship.shields
+		});
+	})
+});
+
 //for loading character select screen
 router.get("/characterselect", function (req, res) {
 	res.render("char-select");

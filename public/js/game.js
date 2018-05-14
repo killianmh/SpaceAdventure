@@ -149,6 +149,39 @@ $(function () {
                 }
             )
         }
+
+        if ($(this).attr('data-stage') == "16") {
+            $.ajax('/api/character', {
+                type: 'PUT'
+
+            }).then(
+                function () {
+                    location.assign("tbc");
+                }
+            )
+        }
+
+        if ($(this).attr('data-stage') == "17") {
+            $.ajax('/api/character', {
+                type: 'PUT'
+
+            }).then(
+                function () {
+                    location.assign("dlc");
+                }
+            )
+        }
+
+        if ($(this).attr('data-stage') == "18") {
+            $.ajax('/api/character', {
+                type: 'PUT'
+
+            }).then(
+                function () {
+                    location.assign("playagain");
+                }
+            )
+        }
     });
 
     //*******************************

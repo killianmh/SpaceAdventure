@@ -59,3 +59,7 @@ button {
 	height: 12rem;
 	object-fit: cover;
 }
+
+.span12 {
+	background-color: white;
+}
