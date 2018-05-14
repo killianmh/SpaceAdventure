@@ -4,7 +4,7 @@ var nightmare = Nightmare({ show: true });
 
 nightmare
 	.goto("https://stark-meadow-67785.herokuapp.com/")
-	.click("btn[data-target='#exampleModal']")
+	.click("#login-modal")
 	.wait(30000)
 	.type("#search_form_input_homepage", "github nightmare")
 	.wait("#links a")
