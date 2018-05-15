@@ -9,19 +9,22 @@ describe("spacerats", function () {
 	it("should allow user to login", function (done) {
 		// ID for the login button.
 		Nightmare({ show: true })
-			.goto("localhost:3000")
-			// Click the catalog link
-			.click("btn[data-target='#exampleModal']")
-			//a[href='/catalog/subject/all']
+			.goto("https://stark-meadow-67785.herokuapp.com/")
+			.click("#login-modal")
 			.click("a[href='#home']")
-		// Evaluate the title
-		// .evaluate(function () {
-		// 	return document.title;
-		// })
-		// Asset the title is as expected
-		// .then(function (title) {
-		// 	expect(title).to.equal("Catalog | Codecademy");
-		// 	done();
-		// });
+			.wait(1000)
+			.type("input[name='username'", "testUser4")
+			.type("input[name='password'", "1234")
+			.click("input[value='Sign Up']")
+			.wait(5000)
+			// Evaluate the title
+			.evaluate(function () {
+				return document.title;
+			})
+			// Asset the title is as expected
+			.then(function (title) {
+				expect(title).to.equal("Rats in SPAAAAAAAACE!!!");
+				done();
+			});
 	});
 });
