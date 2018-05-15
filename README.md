@@ -25,6 +25,4 @@ This full-stack javascript application is a browser-based 'Choose-Your-Own' Adve
 
 Create a secure login from our landing page, create your character and choose a ship!
 
-![Gif of Login](https://imgur.com/a/CtPvAM0)
-
 From there, you create your own story! Be careful, there is danger at every turn... and don't forget your towel.
