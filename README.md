@@ -10,21 +10,21 @@ This full-stack javascript application is a browser-based 'Choose-Your-Own' Adve
 
 ### Tools & Tech
  
-*jQuery
-*Node.js
-*Express
-*MySQL
-*MVC Architecture
-*Sequelize ORM
-*Handlebars Templating
-*Passport/Session Authentication + Login
-*Bootstrap 4
-*Mocha/Chai + Nightmare Testing
+* jQuery
+* Node.js
+* Express
+* MySQL
+* MVC Architecture
+* Sequelize ORM
+* Handlebars Templating
+* Passport/Session Authentication + Login
+* Bootstrap 4
+* Mocha/Chai + Nightmare Testing
 
 ### How-To
 
 Create a secure login from our landing page, create your character and choose a ship!
 
-![Gif of Login] (https://imgur.com/a/CtPvAM0)
+![Gif of Login](https://imgur.com/a/CtPvAM0)
 
 From there, you create your own story! Be careful, there is danger at every turn... and don't forget your towel.
