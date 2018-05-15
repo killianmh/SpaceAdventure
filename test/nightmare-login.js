@@ -6,10 +6,11 @@ nightmare
 	.goto("https://stark-meadow-67785.herokuapp.com/")
 	.click("#login-modal")
 	.click("a[href='#home']")
+	.wait(1000)
 	.type("input[name='username'", "testUser")
 	.type("input[name='password'", "1234")
+	.click("input[value='Sign Up']")
 	.wait(30000)
-	.type("#search_form_input_homepage", "github nightmare")
 	.wait("#links a")
 	.evaluate(function () {
 		return document.querySelector("#links a").href;
