@@ -30,7 +30,7 @@ app.use(routes(passport));
 
 require('./config/passport/passport.js')(passport, db.user);
 
-db.sequelize.sync({force: true}).then(function () {
+db.sequelize.sync().then(function () {
 	app.get('/', function (req, res) {
 
 		res.send('Welcome to Passport with Sequelize');

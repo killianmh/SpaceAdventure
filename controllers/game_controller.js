@@ -9,7 +9,7 @@ var router = express.Router();
 function isLoggedIn(req, res, next) {
 	if (req.isAuthenticated())
 		return next();
-	res.redirect('/signin');
+	res.redirect('/');
 };
 
 //post route uses the character model to create our character with the users choice of name
@@ -59,18 +59,51 @@ router.delete("/api/restart", function (req, res) {
 
 //put route updates certain values pertaining to character based on events ex. when damage is taken, health value is adjusted in DB
 router.put("/api/character", function (req, res) {
+	// console.log("here is the req.body.health: " + JSON.stringify(req.body))
+	// console.log(Object.keys(req.body)[0])
+	if(Object.keys(req.body)[0] === "health"){
+		db.character.update({
+			health: req.body.health,
+			sanity: req.body.sanity
+		}, {
+				where:
+					{ userId: req.user.id }
+			}
+	
+		).then(function (data) {
+			res.end();
+		})
+	}
+	else{
+		res.end()
+	}
+});
 
-	db.character.update({
-		// name: "bill"
-	}, {
-			where:
-				{ userId: req.user.id }
-		}
+router.put("/api/spaceship", function (req, res) {
+	console.log("here is the req.body.shields: " + JSON.stringify(req.body))
+	console.log(Object.keys(req.body)[0])
+	if(Object.keys(req.body)[0] === "shields"){
+		db.spaceship.update({
+			shields: req.body.shields
+		}, {
+				where:
+					{ userId: req.user.id }
+			}
+	
+		).then(function (data) {
+			res.end();
+		})
+	}
+	else{
+		res.end()
+	}
+});
 
-	).then(function (data) {
-		res.end();
-	})
+router.put("/api/characterAndSpaceship", function (req, res) {
+	console.log("here is the req.body.shields: " + JSON.stringify(req.body))
+	console.log(Object.keys(req.body)[0])
 
+	res.end();
 });
 
 
@@ -79,7 +112,7 @@ router.get("/", function (req, res) {
 });
 
 //this route is used to keep the character specific information update on game tile 
-router.get("/game", function (req, res) {
+router.get("/game",  isLoggedIn, function (req, res) {
 	db.user.findOne({
 		where: {
 			id: req.user.id
@@ -100,7 +133,7 @@ router.get("/game", function (req, res) {
 	})
 });
 
-router.get("/stage1", function (req, res) {
+router.get("/stage1",  isLoggedIn, function (req, res) {
 	db.user.findOne({
 		where: {
 			id: req.user.id
@@ -121,7 +154,7 @@ router.get("/stage1", function (req, res) {
 	})
 });
 
-router.get("/result1", function (req, res) {
+router.get("/result1",  isLoggedIn, function (req, res) {
 	db.user.findOne({
 		where: {
 			id: req.user.id
@@ -142,7 +175,7 @@ router.get("/result1", function (req, res) {
 	})
 });
 
-router.get("/stage2", function (req, res) {
+router.get("/stage2",  isLoggedIn, function (req, res) {
 	db.user.findOne({
 		where: {
 			id: req.user.id
@@ -163,7 +196,7 @@ router.get("/stage2", function (req, res) {
 	})
 });
 
-router.get("/stage3", function (req, res) {
+router.get("/stage3",  isLoggedIn, function (req, res) {
 	db.user.findOne({
 		where: {
 			id: req.user.id
@@ -184,7 +217,7 @@ router.get("/stage3", function (req, res) {
 	})
 });
 
-router.get("/result2", function (req, res) {
+router.get("/result2",  isLoggedIn, function (req, res) {
 	db.user.findOne({
 		where: {
 			id: req.user.id
@@ -205,7 +238,7 @@ router.get("/result2", function (req, res) {
 	})
 });
 
-router.get("/result3", function (req, res) {
+router.get("/result3",  isLoggedIn, function (req, res) {
 	db.user.findOne({
 		where: {
 			id: req.user.id
@@ -226,7 +259,7 @@ router.get("/result3", function (req, res) {
 	})
 });
 
-router.get("/stage4", function (req, res) {
+router.get("/stage4",  isLoggedIn, function (req, res) {
 	db.user.findOne({
 		where: {
 			id: req.user.id
@@ -247,7 +280,7 @@ router.get("/stage4", function (req, res) {
 	})
 });
 
-router.get("/asteroid", function (req, res) {
+router.get("/asteroid",  isLoggedIn, function (req, res) {
 	db.user.findOne({
 		where: {
 			id: req.user.id
@@ -270,7 +303,7 @@ router.get("/asteroid", function (req, res) {
 	})
 });
 
-router.get("/asteroid2", function (req, res) {
+router.get("/asteroid2",  isLoggedIn, function (req, res) {
 	db.user.findOne({
 		where: {
 			id: req.user.id
@@ -293,7 +326,7 @@ router.get("/asteroid2", function (req, res) {
 	})
 });
 
-router.get("/jump2warp", function (req, res) {
+router.get("/jump2warp",  isLoggedIn, function (req, res) {
 	db.user.findOne({
 		where: {
 			id: req.user.id
@@ -314,7 +347,7 @@ router.get("/jump2warp", function (req, res) {
 	})
 });
 
-router.get("/blackhole", function (req, res) {
+router.get("/blackhole",  isLoggedIn, function (req, res) {
 	db.user.findOne({
 		where: {
 			id: req.user.id
@@ -335,7 +368,7 @@ router.get("/blackhole", function (req, res) {
 	})
 });
 
-router.get("/spacecats", function (req, res) {
+router.get("/spacecats",  isLoggedIn, function (req, res) {
 	db.user.findOne({
 		where: {
 			id: req.user.id
@@ -356,7 +389,7 @@ router.get("/spacecats", function (req, res) {
 	})
 });
 
-router.get("/spacefight", function (req, res) {
+router.get("/spacefight",  isLoggedIn, function (req, res) {
 	db.user.findOne({
 		where: {
 			id: req.user.id
@@ -377,7 +410,7 @@ router.get("/spacefight", function (req, res) {
 	})
 });
 
-router.get("/spaceflight", function (req, res) {
+router.get("/spaceflight",  isLoggedIn, function (req, res) {
 	db.user.findOne({
 		where: {
 			id: req.user.id
@@ -398,7 +431,7 @@ router.get("/spaceflight", function (req, res) {
 	})
 });
 
-router.get("/tbc", function (req, res) {
+router.get("/tbc",  isLoggedIn, function (req, res) {
 	db.user.findOne({
 		where: {
 			id: req.user.id
@@ -419,7 +452,7 @@ router.get("/tbc", function (req, res) {
 	})
 });
 
-router.get("/dlc", function (req, res) {
+router.get("/dlc",  isLoggedIn, function (req, res) {
 	db.user.findOne({
 		where: {
 			id: req.user.id
@@ -441,11 +474,11 @@ router.get("/dlc", function (req, res) {
 });
 
 //for loading character select screen
-router.get("/characterselect", function (req, res) {
+router.get("/characterselect",  isLoggedIn, function (req, res) {
 	res.render("char-select");
 });
 
-router.get('/shipselect', function (req, res) {
+router.get('/shipselect',  isLoggedIn, function (req, res) {
 	res.render("ship-select");
 });
 

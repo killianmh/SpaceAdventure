@@ -12,7 +12,8 @@ $(function () {
         if ($(this).attr('data-stage') == "1") {
             $.ajax('/api/character', {
                 type: 'PUT'
-            }).then(
+                }
+            ).then(
                 function () {
                     location.assign("result1");
                 }
@@ -70,8 +71,9 @@ $(function () {
         }
 
         if ($(this).attr('data-stage') == "7") {
-            $.ajax('/api/character', {
-                type: 'PUT'
+            $.ajax('/api/spaceship', {
+                type: 'PUT',
+                data: {shields: 8}
             }).then(
                 function () {
                     location.assign("asteroid");
@@ -81,8 +83,9 @@ $(function () {
 
         if ($(this).attr('data-stage') == "8") {
 
-            $.ajax('/api/character', {
-                type: 'PUT'
+            $.ajax('/api/spaceship', {
+                type: 'PUT',
+                data: {shields: 2}
 
             }).then(
                 function () {
@@ -118,7 +121,8 @@ $(function () {
 
         if ($(this).attr('data-stage') == "11") {
             $.ajax('/api/character', {
-                type: 'PUT'
+                type: 'PUT',
+                data: {health: 12, sanity: 7}
 
             }).then(
                 function () {
@@ -151,7 +155,7 @@ $(function () {
         }
 
         if ($(this).attr('data-stage') == "16") {
-            $.ajax('/api/character', {
+            $.ajax('/api/characterAndSpaceship', {
                 type: 'PUT'
 
             }).then(
@@ -178,7 +182,40 @@ $(function () {
 
             }).then(
                 function () {
-                    location.assign("playagain");
+                    location.assign("tbc");
+                }
+            )
+        }
+
+        if ($(this).attr('data-stage') == "19") {
+            $.ajax('/api/character', {
+                type: 'PUT'
+
+            }).then(
+                function () {
+                    location.assign("tbc");
+                }
+            )
+        }
+
+        if ($(this).attr('data-stage') == "20") {
+            $.ajax('/api/character', {
+                type: 'PUT'
+
+            }).then(
+                function () {
+                    location.assign("tbc");
+                }
+            )
+        }
+
+        if ($(this).attr('data-stage') == "21") {
+            $.ajax('/api/character', {
+                type: 'PUT'
+
+            }).then(
+                function () {
+                    location.assign("tbc");
                 }
             )
         }
