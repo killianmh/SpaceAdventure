@@ -6,18 +6,15 @@ nightmare
 	.goto("https://stark-meadow-67785.herokuapp.com/")
 	.click("#login-modal")
 	.click("a[href='#home']")
-	.type("input[name='username'", "testUser")
+	.wait(1000)
+	.type("input[name='username'", "testUser2")
 	.type("input[name='password'", "1234")
-	.wait(30000)
-	.type("#search_form_input_homepage", "github nightmare")
-	.wait("#links a")
-	.evaluate(function () {
-		return document.querySelector("#links a").href;
-	})
+	.click("input[value='Sign Up']")
+	.wait(5000)
 	.end()
-	.then(function (result) {
-		console.log(result);
+	.then(function () {
+		console.log("Done!");
 	})
 	.catch(function (error) {
-		console.error("Search failed:", error);
+		console.error(error);
 	});
