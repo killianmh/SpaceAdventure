@@ -7,18 +7,14 @@ nightmare
 	.click("#login-modal")
 	.click("a[href='#home']")
 	.wait(1000)
-	.type("input[name='username'", "testUser")
+	.type("input[name='username'", "testUser2")
 	.type("input[name='password'", "1234")
 	.click("input[value='Sign Up']")
-	.wait(30000)
-	.wait("#links a")
-	.evaluate(function () {
-		return document.querySelector("#links a").href;
-	})
+	.wait(5000)
 	.end()
-	.then(function (result) {
-		console.log(result);
+	.then(function () {
+		console.log("Done!");
 	})
 	.catch(function (error) {
-		console.error("Search failed:", error);
+		console.error(error);
 	});
