@@ -66,6 +66,13 @@
 						</a>
 					</div>
 				</div>
+				<div class="col-md-3">
+					<div class="card mb-3 box-shadow border-dark">
+						<a class="shipId">
+							<img class="card-img-top easterEgg" style = "display: none; border: none" src="./images/ships/deathstar.png" alt="Card image cap">
+						</a>
+					</div>
+				</div>
 			</div>
 			<div class="row">
 				<div class="col text-center">
@@ -75,3 +82,14 @@
 		</div>
 	</div>
 </main>
+
+<script>
+	window.onload = function(){
+		var egg = new Egg("v,a,d,e,r", function() {
+  	
+		$(".easterEgg").show();
+
+		}).listen();
+	}
+	
+</script>
